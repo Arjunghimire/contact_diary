@@ -1,0 +1,24 @@
+<div class="container">
+<h2>Welcome everyone in our online contact diary</h2>
+<h5 class="label label-success">Design by: Arjun Ghimire, Email:arjunrazz0714@gmail.com</h5> 
+<h4>To save your contact number in cloud you need to do</h4>
+<ul class="list-group">
+<li class="list-group-item">Login if you have already account</li>
+<li class="list-group-item">If you not have account, create an account and login to save your contact details</li>
+</ul>
+<h4>Log in</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :email, required: false, autofocus: true %>
+    <%= f.input :password, required: false %>
+    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Log in" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>

@@ -1,0 +1,29 @@
+.container
+ .media
+  .pull-left
+   =image_tag @post.image.url(:medium),class: "media-object"
+  .media-body
+   %h3.list-group-item
+    Details about
+    = @post.fullname
+   %p.list-group-item
+    Address:-
+    = @post.address
+   %p.list-group-item
+    Email:-
+    = @post.email
+   %p.list-group-item
+    Telephone Number:-
+    = @post.tel_number
+   %p.list-group-item
+    Mobile Number:-
+    = @post.mob_number
+   %p.list-group-item
+    Added at:-
+    = time_ago_in_words(@post.created_at)
+    ago
+ .botton-bottom
+ =link_to "Back",posts_path,class:"btn btn-warning"
+ = link_to "Edit",edit_post_path(),class:"btn btn-primary"
+
+

@@ -1,0 +1,34 @@
+.container
+ %h1
+  Total
+  = @posts.count
+  contacts list
+ %p 
+  Your are login by:-
+  = @users.email
+ %table.table.table-striped
+  %thead
+   %tr
+    %th Image
+    %th Fullname
+    %th Address
+    %th Email
+    %th Tel.Number
+    %th Mob.Number
+    %th Added at
+    %th Option
+  %tbody
+  -@posts.each do |post|
+   %tr
+    %th= image_tag post.image.url(:small)
+    %th= post.fullname 
+    %th= post.address
+    %th= post.email
+    %th= post.tel_number
+    %th= post.mob_number
+    %th= post.created_at.strftime("%B %d,%Y")
+    %th
+     = link_to "Details",post_path(post),class:"btn btn-info"
+     = link_to "Edit",edit_post_path(post),class:"btn btn-primary"
+     = link_to "Delete",post_path(post),method: :delete,data:{confirm:"Are you sure?"},class:"btn btn-danger"
+

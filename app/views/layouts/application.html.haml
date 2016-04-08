@@ -1,0 +1,27 @@
+!!! 5
+%html
+%head
+ %title Diary
+ = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
+ = javascript_include_tag 'application', 'data-turbolinks-track' => true 
+ = csrf_meta_tags
+%body
+.container
+ .navbar.navbar-default
+  .navbar-header
+   %button.navbar-toggle
+   .navbar-brand= link_to "Contact Diary",posts_path
+  .collapse.navbar-collapse
+ - if user_signed_in?
+  %ul.nav.navbar-nav
+   %li= link_to "Home",posts_path 
+   %li= link_to "New Contact",new_post_path
+   %li= link_to "Sign Out",destroy_user_session_path,method: :delete
+ - else
+  %ul.nav.navbar-nav
+   %li= link_to "Sign in",new_user_session_path 
+   %li= link_to "Sign Up",new_user_registration_path
+  
+  
+
+=yield
